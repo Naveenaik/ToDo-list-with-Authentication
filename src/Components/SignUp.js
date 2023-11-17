@@ -19,6 +19,7 @@ const SignUp = () => {
 
   return (
     <div className="container">
+      <h2>Sign Up</h2>
       <div className="input">
         <img src={person_icon} alt="" />
         <input

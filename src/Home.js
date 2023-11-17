@@ -23,32 +23,35 @@ const Home = ({ user }) => {
 
   useEffect(() => {
     fetchToDos();
-  }, [user]);
+  });
 
   const getAddToDo = async () => {
-    addToDo(text, user._id);
+    addToDo(text,date,user._id);
     setText("");
+    setDate("");
     fetchToDos();
-    fetchToDos();
+    // fetchToDos();
   };
 
   const getUpdateToDo = () => {
-    updateToDo(toDoId, text, setText, setIsUpdating, user._id);
+    updateToDo(toDoId, text, setText, setIsUpdating,date, user._id);
     setText("");
     fetchToDos();
-    fetchToDos();
+    setDate("");
+    // fetchToDos();
   };
 
-  const updateMode = (_id, text) => {
+  const updateMode = (_id, text,date) => {
     setIsUpdating(true);
     setText(text);
+    setDate(date);
     setToDoId(_id);
   };
 
-  const deleteMode = (toDoId, text) => {
+  const deleteMode = (toDoId, text,date) => {
     deleteToDo(toDoId, text, user._id);
     fetchToDos();
-    fetchToDos();
+    // fetchToDos();
   };
 
   return (
@@ -75,11 +78,12 @@ const Home = ({ user }) => {
       <div className="list">
         {toDo &&
           toDo.map((item) => (
-            <ToDoIcon
+            <ToDoIcon 
               key={item._id}
               text={item.text}
-              updateMode={() => updateMode(item._id, item.text)}
-              deleteMode={() => deleteMode(item._id, item.text)}
+              dateDB={item.date}
+              updateMode={() => updateMode(item._id, item.text,item.date)}
+              deleteMode={() => deleteMode(item._id, item.text,item.date)}
             />
           ))}
       </div>

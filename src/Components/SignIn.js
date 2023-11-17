@@ -17,6 +17,7 @@ const SignIn = ({setLoginUser}) => {
 
   return (
     <div className="container">
+      <h2>Sign In</h2>
       <div className="input">
         <img src={email_icon} alt="" />
         <input type="email" placeholder="Email id" required 
