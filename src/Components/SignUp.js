@@ -6,7 +6,7 @@ import person_icon from "../Assets/person.png";
 
 import "../Components/SignUp.css";
 
-import { signUp, signIn } from "../Utilis/HandleApi";
+import { signUp } from "../Utilis/HandleApi";
 
 import { useNavigate } from "react-router-dom";
 
