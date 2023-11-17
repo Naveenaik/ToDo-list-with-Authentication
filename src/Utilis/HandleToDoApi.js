@@ -11,13 +11,13 @@ const getAllToDo = async (userId) => {
   }
 };
 
-const addToDo = async (text,setText,userId) => {
+const addToDo = async (text,userId) => {
   try {
-      await axios.post(`${baseUrl}/save/${userId}`,{text})
+    const response = await axios.post(`${baseUrl}/save/${userId}`,{text})
       .then(({data})=>{
       console.log(data);
-      setText("");
     })
+    return response.data;
   } catch (err) {
     console.log(err);
   }
@@ -26,13 +26,14 @@ const addToDo = async (text,setText,userId) => {
 const updateToDo = async(toDoId,text,setText,setIsUpdating,userId) =>{
   console.log("Item updated");
     try{
-      await axios.put(`${baseUrl}/update/${userId}/${toDoId}`,{text})
+      const response = await axios.put(`${baseUrl}/update/${userId}/${toDoId}`,{text})
       .then(({data})=>{
         console.log("Item updated");
         console.log(data);
         setText("");
         setIsUpdating(false)
       })
+      return response.data;
     }
     catch(err)
     {
@@ -42,11 +43,11 @@ const updateToDo = async(toDoId,text,setText,setIsUpdating,userId) =>{
 
 const deleteToDo = async(toDoId,text,userId) =>{
   try{
-    await axios.delete(`${baseUrl}/delete/${userId}/${toDoId}`,{text})
+    const response = await axios.delete(`${baseUrl}/delete/${userId}/${toDoId}`,{text})
     .then(({data})=>{
       console.log(data);
-      getAllToDo(userId);
     })
+    return response.data;
   }
   catch(err)
   {

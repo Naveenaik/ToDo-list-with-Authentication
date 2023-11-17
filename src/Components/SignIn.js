@@ -15,8 +15,6 @@ const SignIn = ({setLoginUser}) => {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
 
-  // const [userId,setUserId] = useState("")
-
   return (
     <div className="container">
       <div className="input">

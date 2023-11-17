@@ -26,7 +26,7 @@
 }
 .container .input input{
     height: 50px;
-    width: 400px;
+    width: 210px;
     background: transparent;
     border: none;
     outline: none;
@@ -36,6 +36,7 @@
     user-select: none;
     margin: 0 30px;
 }
+
 .submit-container{
     background: rgb(60, 60, 230);
     color: white;

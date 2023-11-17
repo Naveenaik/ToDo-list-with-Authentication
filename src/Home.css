@@ -26,7 +26,19 @@ input {
   cursor: pointer;
   margin-left: 10px;
   border-radius: 3px;
+  user-select: none;
 }
+
+input[type="date"]{
+  width: 100px;
+}
+
+
+.add:hover{
+  box-shadow: 0 4px 15px rgb(43, 43, 44), 0 4px 15px 0 rgb(43, 43, 44);
+  transition: 0.5s;
+}
+
 .todo {
   position: relative;
   margin-top: 1rem;
@@ -36,6 +48,10 @@ input {
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
+}
+.todo:hover{
+  box-shadow: 0 4px 15px rgb(43, 43, 44), 0 4px 15px 0 rgb(43, 43, 44);
+  transition: 0.5s;
 }
 icons {
   position: absolute;
@@ -50,9 +66,7 @@ icons {
   margin: auto;
   padding: 0 1rem;
 }
-.todo {
-  color: #fff;
-}
+
 .text {
   background: #000;
 }

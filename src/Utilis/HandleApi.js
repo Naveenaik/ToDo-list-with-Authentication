@@ -20,8 +20,7 @@ const signIn = async (
   userEmail,
   userPassword,
   setLoginUser,
-  navigate,
-  setUser
+  navigate
 ) => {
   try {
     const response = await axios
@@ -32,7 +31,6 @@ const signIn = async (
       .then((res) => {
         alert(res.data.message);
         setLoginUser(res.data.user);
-        setUser(res.data.user);
         navigate("/");
       });
   } catch (err) {
