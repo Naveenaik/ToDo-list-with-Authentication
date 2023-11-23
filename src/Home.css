@@ -49,6 +49,7 @@ input[type="date"]{
   display: flex;
   justify-content: space-between;
 }
+
 .todo:hover{
   box-shadow: 0 4px 15px rgb(43, 43, 44), 0 4px 15px 0 rgb(43, 43, 44);
   transition: 0.5s;

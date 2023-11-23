@@ -4,11 +4,9 @@ import {getAllToDo,addToDo,updateToDo,deleteToDo} from "./Utilis/HandleToDoApi";
 
 import "./Home.css";
 
-//, addToDo, updateToDo, deleteToDo
 const Home = ({ user }) => {
   const [toDo, setToDo] = useState([]);
   const [text, setText] = useState("");
-  const [date,setDate] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
   const [toDoId, setToDoId] = useState("");
 
@@ -26,32 +24,27 @@ const Home = ({ user }) => {
   });
 
   const getAddToDo = async () => {
-    addToDo(text,date,user._id);
+    addToDo(text,user._id);
     setText("");
-    setDate("");
     fetchToDos();
-    // fetchToDos();
   };
 
   const getUpdateToDo = () => {
-    updateToDo(toDoId, text, setText, setIsUpdating,date, user._id);
+    updateToDo(toDoId, text, setText, setIsUpdating,user._id);
     setText("");
     fetchToDos();
-    setDate("");
-    // fetchToDos();
   };
 
-  const updateMode = (_id, text,date) => {
+  const updateMode = (_id, text) => {
     setIsUpdating(true);
     setText(text);
-    setDate(date);
     setToDoId(_id);
   };
 
-  const deleteMode = (toDoId, text,date) => {
+  const deleteMode = (toDoId, text) => {
     deleteToDo(toDoId, text, user._id);
     fetchToDos();
-    // fetchToDos();
+ 
   };
 
   return (
@@ -65,8 +58,6 @@ const Home = ({ user }) => {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          <input type="date" value={date} onChange={(e)=>setDate(e.target.value)}/>
-
           <div
             className="add"
             onClick={isUpdating ? () => getUpdateToDo() : () => getAddToDo()}
@@ -81,9 +72,8 @@ const Home = ({ user }) => {
             <ToDoIcon 
               key={item._id}
               text={item.text}
-              dateDB={item.date}
-              updateMode={() => updateMode(item._id, item.text,item.date)}
-              deleteMode={() => deleteMode(item._id, item.text,item.date)}
+              updateMode={() => updateMode(item._id, item.text)}
+              deleteMode={() => deleteMode(item._id, item.text)}
             />
           ))}
       </div>

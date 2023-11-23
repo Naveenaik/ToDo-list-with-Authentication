@@ -11,9 +11,9 @@ const getAllToDo = async (userId) => {
   }
 };
 
-const addToDo = async (text,date,userId) => {
+const addToDo = async (text,userId) => {
   try {
-    const response = await axios.post(`${baseUrl}/save/${userId}`,{text,date})
+    const response = await axios.post(`${baseUrl}/save/${userId}`,{text})
       .then(({data})=>{
       console.log(data);
     })
@@ -23,12 +23,12 @@ const addToDo = async (text,date,userId) => {
   }
 };
 
-const updateToDo = async(toDoId,text,setText,setIsUpdating,date,userId) =>{
+const updateToDo = async(toDoId,text,setText,setIsUpdating,userId) =>{
   console.log("Item updated");
     try{
-      const response = await axios.put(`${baseUrl}/update/${userId}/${toDoId}`,{text,date})
+      const response = await axios.put(`${baseUrl}/update/${userId}/${toDoId}`,{text})
       .then(({data})=>{
-        console.log("Item updated");
+        // console.log("Item updated");
         console.log(data);
         setText("");
         setIsUpdating(false)
