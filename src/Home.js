@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import ToDoIcon from "./Components/ToDoIcon";
 import {getAllToDo,addToDo,updateToDo,deleteToDo} from "./Utilis/HandleToDoApi";
 
+import Logout from "./Components/Logout"
+
 import "./Home.css";
 
-const Home = ({ user }) => {
+const Home = ({ user,setLoginUser }) => {
   const [toDo, setToDo] = useState([]);
   const [text, setText] = useState("");
   const [isUpdating, setIsUpdating] = useState(false);
@@ -49,6 +51,7 @@ const Home = ({ user }) => {
 
   return (
     <div className="home">
+      <Logout setLoginUser={setLoginUser}/>
       <div className="todo-container">
         <h1>ToDo App</h1>
         <div className="top">

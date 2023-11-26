@@ -2,8 +2,7 @@ import "./App.css";
 
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
-
-import Navigation from "./Navigation";
+import Home from "./Home"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState } from "react";
@@ -19,7 +18,7 @@ function App() {
             path="/"
             element={
               user && user._id ? (
-                <Navigation user={user} setLoginUser={setLoginUser} />
+                <Home user={user} setLoginUser={setLoginUser} />
               ) : (
                 <SignIn setLoginUser={setLoginUser} />
               )
